@@ -2,11 +2,12 @@ import React,{useState,useEffect} from 'react'
 import Header from './Header'
 import Post from './Post'
 import './postview.css'
-import {ToastContainer,toast} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+
 
 function PostView() {
   const [posts,setPosts]=useState('')
+  const [id,setid]=useState('')
+
   useEffect(()=>{
     fetch('https://instaclone-mern-10x.herokuapp.com/post',{
     method:"GET",
@@ -15,8 +16,8 @@ function PostView() {
       'Content-Type':'application/json'
     },
   }).then(res=>res.json()).then(res=>{setPosts(res)
-  toast.success("data fetch successfully",{position:"bottom-right"})})
-  },[])
+  })
+  },[id])
   return (
     <>
     <Header/>
@@ -27,11 +28,10 @@ function PostView() {
         
       return (
         
-      <div key={i}> <Post post={post} i={i}/></div>
+      <div key={i}> <Post post={post} setid={setid}/></div>
       )
     })
     }
-    <ToastContainer />
 
     </section>
    

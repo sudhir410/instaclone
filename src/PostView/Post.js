@@ -1,6 +1,27 @@
-import React from "react";
+import React,{useState} from "react";
+import {ToastContainer,toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
-function Post({post,i}) {
+
+function Post({post,setid}) {
+  const [toggle,setToggle]=useState(false)
+  const handleToggle=()=>{
+    setToggle(!toggle)
+  }
+  const deleteData=(event)=>{
+    let id=event.target.getAttribute('id')
+    fetch(`https://instaclone-mern-10x.herokuapp.com/post/delete/${id}`,{
+      method:"DELETE",
+      headers:{
+        "Content-Type":"application/json"
+      },
+
+    }).then(res=>res.json()).then(data=>{console.log(data)
+      setid(id)
+      toast.success('deleted successfully')
+   })
+    setToggle(!toggle)
+  }
   return (
     <div className="post_container" >
       <header className="post_header" >
@@ -8,7 +29,12 @@ function Post({post,i}) {
           <p className="post_name">{post.name}</p>
           <p className="post_location">{post.location}</p>
         </div>
-        <img src="./images/more_icon.svg" alt="more" />
+        <img onClick={()=>handleToggle()} src="./images/more_icon.svg" alt="more" />
+       { toggle && <section className="dbox">
+          <ul>
+            <li id={post._id} onClick={deleteData}>Delete</li>
+          </ul>
+        </section>}
       </header>
       <div className="post_img_container" >
         <img
@@ -27,6 +53,7 @@ function Post({post,i}) {
         <p><span>{post.likes}</span> likes</p>
         <h3>{post.description}</h3>
       </footer>
+      <ToastContainer/>
     </div>
   );
 }
