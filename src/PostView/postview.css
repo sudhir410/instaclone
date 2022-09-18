@@ -123,12 +123,15 @@
 }
 .Input_container .form{
     border: 1px solid #707070;
+    border-radius:10px ;
     padding: 15px 20px;
+    background-color: #d1e2e4;
 }
 .Input_container .form .image_path{
     margin-bottom: 15px;
 }
 .Input_container .form .image_path input:nth-child(1){
+    height: 22px;
     width: 80%;
 }
 .Input_container .form .image_path input:nth-child(2){
@@ -137,9 +140,6 @@
     overflow: hidden;
 }
 
-/* .Input_container form .image_path input:nth-child(2)::-webkit-file-upload-button {
-    
-  } */
 
   .Input_container .authorAndLocation{
     display: flex;
@@ -156,4 +156,87 @@
   .Input_container button{
     margin-top: 15px;
     padding: 4px 15px;
-  }
+    border-radius: 10px;
+    border: solid 3px transparent;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #78e4ff, #ff48fa);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #fff inset;
+}
+.Input_container button:hover{
+    color: #FFFFFF;
+    box-shadow:none ;
+}
+
+
+@media only screen and (max-width:500px){
+    .header{
+        padding: 0 20px;
+    
+    }
+.header .LOGO img{
+    width: 30px;
+    height: 30px;
+}
+.header .LOGO p{
+    font-size: 30px;
+}
+.header .camera_icon img{
+    width: 25px;
+    height:25px
+}
+.post_section .post_container{
+    width: 350px;
+}
+.post_section .post_header{
+    padding: 6px 18px;
+
+}
+.post_container .post_header .post_header_name .post_name{
+    font-size: 24px;
+}
+.post_container .post_header .post_header_name .post_location{
+    font-size: 18px;
+}
+
+.post_container .post_header img{
+    width: 20px;
+    height: 15px;
+}
+.post_container .post_img_container{
+    height: 180px;
+}
+.post_container .post_footer{
+    padding: 0 17px;
+}
+.post_container .post_footer .post_base{
+    padding: 5px;
+}
+.post_container .post_footer .post_base .post_icons img{
+    width: 18px;
+    height: 17px;
+}
+.post_container .post_footer .post_base p{
+    padding-top: 10px;
+}
+.post_container .post_footer  p{
+    font-size: 14px;
+    margin-top: -9px;
+    padding-left: 6px;
+    margin-bottom: 10px;
+}
+.post_container .post_footer  h3{
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.Input_container{
+    width: 350px;
+}
+.Input_container .form .image_path input:nth-child(1){
+    width: 71%;
+}
+.Input_container .form .image_path input:nth-child(2){
+    width: 29%;
+}
+
+}
