@@ -11,7 +11,7 @@ function LandingPage() {
           <img src="./images/len.webp" alt="lens" />
         </div>
         <div className='enter_container'>
-          <p>10x Team 04</p>
+          <p>Instaclone</p>
           <button onClick={()=>navigate('/post')} >Enter</button>
         </div>
       </div>
